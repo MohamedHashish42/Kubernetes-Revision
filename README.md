@@ -46,3 +46,19 @@ container images, and without exposing secrets in your stack configuration.
 <br><br>
 
 ---
+
+## Kubernetes Concepts
+### Node
+In Kubernetes (K8s), a node refers to a physical or virtual machine that is part of a cluster and runs containerized applications.   
+Nodes are the workhorses of a Kubernetes cluster, responsible for executing and managing the containers that make up your applications.  
+
+#### Some nodes commands
+| Command                                               | description                                            |
+|-------------------------------------------------------|--------------------------------------------------------|
+|`kubectl get node`                                     |List nodes                                              |
+|`kubectl get node -o wide`                             |List nodes with additional information                  |
+|`kubectl describe node [node_name]`                    |Provides detailed information about a node              |
+|`kubectl describe nodes \| grep Allocated -A 5`        |Resource allocation per node                            |
+|`kubectl get pods -o wide \| grep <node_name>`         |Pods running on a node                                  |
+|`kubectl delete node [node_name]`                      |Delete a node                                           |
+|`kubectl top node`                                     |Display Resource usage (CPU/Memory/Storage) for nodes   |
