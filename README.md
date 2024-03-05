@@ -62,3 +62,33 @@ Nodes are the workhorses of a Kubernetes cluster, responsible for executing and 
 |`kubectl get pods -o wide \| grep <node_name>`         |Pods running on a node                                  |
 |`kubectl delete node [node_name]`                      |Delete a node                                           |
 |`kubectl top node`                                     |Display Resource usage (CPU/Memory/Storage) for nodes   |
+
+### Cluster
+In Kubernetes (K8s), a cluster is a collection of nodes that work together to manage and run containerized applications.  
+When you deploy Kubernetes, you are essentially running a Kubernetes cluster. 
+
+A Kubernetes cluster consists of two main components:
+
+1. **Master Nodes**:   
+Master Node hosts the control plane.  
+Control plane is the brain of the cluster, where all the decisions and coordination happen, It includes 
+[components](https://www.stackstate.com/blog/kubernetes-architecture-part-2-control-plane-components/) like the API server, controller manager, scheduler, and etcd.  
+Master Node communicates with worker nodes to ensure that the desired state is maintained.  
+A Kubernetes cluster can consists of one or more master nodes,but at least, it has one master node running a container pod and a control plane that manages the cluster.  
+
+1. **Worker Nodes**:  
+These are the nodes where your containerized applications run.
+
+In a nutshell, a Kubernetes cluster is a system for automating the deployment, scaling, and management of containerized applications,
+It provides a level of abstraction that lets you interact with your applications without needing to manage underlying infrastructure.
+
+#### Some cluster management commands
+| Command                           | description                                                   |
+|-----------------------------------|---------------------------------------------------------------|
+|`kubectl version`                  |Display the version information of the client `(kubectl command-line tool installed on your local machine)` and server `(Version of the Kubernetes API server running in your cluster)` for the current context|
+|`kubectl cluster-info`             |Display addresses of the control plane and services with label kubernetes.io/cluster-service=true|
+|`kubectl cluster-info dump`        | `dump` for further debug and diagnose cluster problems        | 
+|`kubectl config view`              |Get the configuration of the cluster                           |
+|`kubectl api-resources`            |List the API resources that are available                      |
+|`kubectl api-version`              |List the API versions that are available                       |
+|`kubectl get all --all-namespaces` |List everything                                                |
