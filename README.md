@@ -92,3 +92,39 @@ It provides a level of abstraction that lets you interact with your applications
 |`kubectl api-resources`            |List the API resources that are available                      |
 |`kubectl api-version`              |List the API versions that are available                       |
 |`kubectl get all --all-namespaces` |List everything                                                |
+
+
+### Pod
+In Kubernetes (K8s), a Pod is the smallest deployable unit where your application's code runs.   
+
+Pods contain one (Single Container Pod) or more (Multi Container Pod) containers.  
+
+Within the pod, containers share the same system resources such as storage and networking, This design allows the application composed of multiple containers that are tightly coupled to be co-located within the same Pod, facilitating seamless communication.    
+
+Each Pod represents a running single instance of a given application. 
+
+Each pod gets a unique IP address.
+
+#### Pod Lifecycle
+The [lifecycle](https://devopscube.com/kubernetes-pod-lifecycle/) of a Kubernetes Pod consists of several phases, each representing a different state in the Pod's journey from creation to termination. Here's a brief overview of the Pod lifecycle:
+
+| Pod Phases | Description                                                                        |
+|------------|------------------------------------------------------------------------------------|
+| Pending    | The Pod is created but not yet running.                                            |
+| Running    | At least one container is running, or is in the process of starting or restarting. |
+| Succeeded  | All containers have been completed successfully.                                   |
+| Failed     | At least one container has failed.                                                 |
+| Unknown    | The Pod status couldn’t be obtained by the API server.                             |
+
+#### Some pods commands
+| Command                                               | description                                            |
+|-------------------------------------------------------|--------------------------------------------------------|
+|`kubectl create -f [pod-definition.yml]`               |Create pod                                              |
+|`kubectl get pod`                                      |List pods                                               |
+|`kubectl get pod -o wide`                              |List pods with additional information                   |
+|`kubectl describe pod [pod_name]`                      |Provides detailed information about a pod               |
+|`kubectl exec -it [pod_name] [command]`                |Get interactive shell on a single-container pod         |
+|`kubectl exec [pod_name] -c [container_name] [command]`|Execute a command against a container in a pod          |
+|`kubectl delete pod [pod_name]`                        |Delete a pod                                            |
+|`kubectl get pod [pod_name] -o yaml > file.yaml`       |Extract the pod definition in YAML and save it to a file|
+|`kubectl top pods`                                     |Display Resource usage (CPU/Memory/Storage) for pods    |
