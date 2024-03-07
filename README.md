@@ -128,3 +128,34 @@ The [lifecycle](https://devopscube.com/kubernetes-pod-lifecycle/) of a Kubernete
 |`kubectl delete pod [pod_name]`                        |Delete a pod                                            |
 |`kubectl get pod [pod_name] -o yaml > file.yaml`       |Extract the pod definition in YAML and save it to a file|
 |`kubectl top pods`                                     |Display Resource usage (CPU/Memory/Storage) for pods    |
+
+### Namespace
+In Kubernetes (k8s), a namespace is like a virtual cluster inside a physical Kubernetes cluster, it is a mechanism to partition and isolate resources within the single cluster, Names of resources need to be unique within a namespace, but not across namespaces.
+
+Namespaces are used to:
+
+1. **Isolate Resources**:  
+You can use namespaces to separate different applications or teams, preventing them from interfering with each other. For example, you can have one namespace for your web application and another for your database.
+
+2. **Resource Quotas**:  
+You can set resource quotas at the namespace level, limiting how much CPU, memory, and other resources can be consumed by the resources (pods, services, etc.) in that namespace.
+
+3. **Access Control**:  
+Kubernetes RBAC (Role-Based Access Control) policies can be applied at the namespace level. This allows you to control who can access and modify resources within a specific namespace.
+
+4. **Naming and Organization**:  
+Namespaces provide a way to give meaningful names to different parts of your application or project, making it easier to manage and maintain.
+
+In summary, a Kubernetes namespace is a way to create virtual clusters within a Kubernetes cluster, helping you manage, isolate, and organize your resources more effectively.
+
+#### Some namespaces commands
+| Command                                               | description                                              |
+|-------------------------------------------------------|----------------------------------------------------------|
+|`kubectl create namespace [namespace_name]`            |Create namespace                                          |
+|`kubectl get namespace`                                |List namespaces                                           |
+|`kubectl get namespace -o wide`                        |List namespaces with additional information               |
+|`kubectl describe namespace [namespace_name]`          |Provides detailed information about a namespace           |
+|`kubectl edit namespace [namespace_name]`              |Edit and update the definition of a namespace             |
+|`kubectl config set-context --current namespace=[namespace_name]` |Set the current context to use a namespace     |
+|`kubectl delete namespace [namespace_name]`            |Delete a namespace                                        |
+|`kubectl top namespace`                                |Display Resource usage (CPU/Memory/Storage) for namespaces|
