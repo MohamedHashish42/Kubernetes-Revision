@@ -159,3 +159,34 @@ In summary, a Kubernetes namespace is a way to create virtual clusters within a 
 |`kubectl config set-context --current namespace=[namespace_name]` |Set the current context to use a namespace     |
 |`kubectl delete namespace [namespace_name]`            |Delete a namespace                                        |
 |`kubectl top namespace`                                |Display Resource usage (CPU/Memory/Storage) for namespaces|
+
+
+### Service
+
+In Kubernetes (k8s), service is an abstraction to help you expose groups of Pods over a network. 
+
+Each Service object defines a logical set of endpoints (usually these endpoints are Pods) along with a policy about how to make those pods accessible. It acts as a stable endpoint to access a set of pods (instances of your application).
+
+Imagine you have multiple pods running your web application, without a service, you'd have to manage each pod's IP address, and if a pod goes down or new pods are created, these IP addresses would change. the service abstracts this complexity.
+
+
+#### Types Of Services 
+In Kubernetes, services are used to expose applications running within a cluster to other applications or users outside the cluster. 
+There are several **[types of services](https://www.ibm.com/docs/en/cloud-private/3.1.1?topic=networking-kubernetes-service-types)** in Kubernetes, each serving a specific purpose. Here are the main types:
+
+1. **[ClusterIP](./TypesOfServices/ClusterIP.md)**
+2. **[NodePort](./TypesOfServices/NodePort.md)**
+3. **[LoadBalancer](./TypesOfServices/LoadBalancer.md)**
+
+
+#### Some services commands
+| Command                                               | description                                              |
+|-------------------------------------------------------|----------------------------------------------------------|
+|`kubectl expose po [pod_name] --port=80 --target-port=8080 --name-frontend --type=[service_type]`|Create a service to expose a pod|
+|`kubectl expose deploy [deploy_name] --port=80 --target-port=8080 --type=[service_type]`|Create a service to expose a deployment|
+|`kubectl create -f [Definition.yml]`                   |Deploy the service                                        |
+|`kubectl get service`                                  |List services                                             |
+|`kubectl get service -o wide`                          |List services with additional information                 |
+|`kubectl describe service [service_name]`              |Provides detailed information about a service             |
+|`kubectl edit service [service_name]`                  |Edit and update the definition of a service               |
+|`kubectl delete service [service_name]`                |Delete a service                                          |
