@@ -190,3 +190,31 @@ There are several **[types of services](https://www.ibm.com/docs/en/cloud-privat
 |`kubectl describe service [service_name]`              |Provides detailed information about a service             |
 |`kubectl edit service [service_name]`                  |Edit and update the definition of a service               |
 |`kubectl delete service [service_name]`                |Delete a service                                          |
+
+
+
+### Ingress
+An Ingress is an API object that manages external access to services within a cluster. It commonly uses HTTP and HTTPS routing to services based on the rules you define.
+
+ingress is a collection of rules, not a service. Instead, Kubernetes ingress sits in front of  **multiple services**  and acts as the entrypoint for an entire cluster of pods.
+
+Ingress is made up of an Ingress API object and the Ingress Controller
+
+1. The Ingress API   
+is a set of rules and configurations defined in the Kubernetes API that describe how external HTTP and HTTPS traffic should be processed and routed to services within the cluster.
+
+1. An Ingress Controller   
+If Kubernetes Ingress is the API object that provides routing rules to manage external access to services, Ingress Controller is the actual implementation of the Ingress API. The Ingress Controller is usually a load balancer for routing external traffic to your Kubernetes cluster.
+
+#### Ingress vs load balancer
+
+The main difference is that ingresses are native objects inside the cluster that can route to multiple services, while load balancers are external to 
+the cluster and only route to a single service.
+
+#### Figure  
+<div align="left">
+
+  ![Ingress Figure](./Ingress/Ingress%20Figure.PNG)
+
+</div>
+
