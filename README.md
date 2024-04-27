@@ -218,3 +218,23 @@ the cluster and only route to a single service.
 
 </div>
 
+
+### ReplicaSet
+A [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) in Kubernetes is a resource that ensures a specified number of identical 
+replicas (copies of a pod) are running at all times. It helps maintain the desired level of availability and scalability 
+for your applications. If a pod fails or is deleted, the ReplicaSet automatically replaces it to meet the desired replica 
+count. 
+
+it is used by [Deployments](#deployment) internally to manage the desired number of replicas.
+
+
+#### Some replicasets commands
+| Command                                               | description                                              |
+|-------------------------------------------------------|----------------------------------------------------------|
+|`kubectl get replicaset`                               |List replicasets                                          |
+|`kubectl get replicaset -o wide`                       |List replicasets with additional information              |
+|`kubectl describe replicaset [replicaset_name]`        |Provides detailed information about a replicaset          |
+|`kubectl delete replicaset [replicaset_name]`          |Delete a replicaset                                       |
+|`kubectl scale replicaset [replicaset_name] --replicas=[number]`|Scale a replicaSet                               |
+
+
