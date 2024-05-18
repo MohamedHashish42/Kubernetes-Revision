@@ -227,6 +227,8 @@ count.
 
 it is used by [Deployments](#deployment) internally to manage the desired number of replicas.
 
+####
+
 
 #### Some replicasets commands
 | Command                                               | description                                              |
@@ -236,5 +238,40 @@ it is used by [Deployments](#deployment) internally to manage the desired number
 |`kubectl describe replicaset [replicaset_name]`        |Provides detailed information about a replicaset          |
 |`kubectl delete replicaset [replicaset_name]`          |Delete a replicaset                                       |
 |`kubectl scale replicaset [replicaset_name] --replicas=[number]`|Scale a replicaSet                               |
+
+
+### Deployment <a id="deployment"></a>
+A Kubernetes deployment (k8s) describe the desired state application, It specifies how many replicas of a pod should run on the cluster. If a pod fails, the deployment creates a new one.
+
+it designed to provide declarative updates to applications. 
+
+it handle the details of updating, scaling, and rolling back as needed.
+
+**Key Features :**
+- **Updates :** There are some way to update your application will be discussed in deployment strategies section.
+- **Scaling :** Deployments can scale the number of replicas up or down based on the defined configuration.
+- **Rollbacks :** If something goes wrong during an update, Deployments allow you to easily roll back to a previous version.
+- **Declarative Configuration :**: You specify the desired state of your application in a YAML file.
+
+####  Deployment Strategy
+In Kubernetes, a deployment strategy refers to the approach used to release and update applications within a cluster. It defines how new versions of your application are rolled out and how the existing instances are scaled up or down during the deployment process. 
+There are different deployment strategies to choose from based on your application's requirements and the desired balance between availability and reliability.
+
+The two basic commonly used K8s deployment strategies
+1. [Rolling Deployment](./DeploymentStrategies/Rolling%20Deployentment%20Example.md)
+2. [Recreate Deployment](./DeploymentStrategies/Recreate%20Deployment%20Example.md)
+
+
+#### Some deployments commands
+| Command                                               | description                                              |
+|-------------------------------------------------------|----------------------------------------------------------|
+|`kubectl create deployment [deployment_name]`          |Create deployment                                         |
+|`kubectl get deployment`                               |List deployments                                          |
+|`kubectl get deployment -o wide`                       |List deployments with additional information              |
+|`kubectl describe deployment [deployment_name]`        |Provides detailed information about a deployment          |
+|`kubectl edit deployment [deployment_name]`            |Edit and update the definition of a deployment            |
+|`kubectl delete deployment [deployment_name]`          |Delete a deployment                                       |    
+
+
 
 
