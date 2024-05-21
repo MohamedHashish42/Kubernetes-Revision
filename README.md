@@ -271,7 +271,57 @@ The two basic commonly used K8s deployment strategies
 |`kubectl describe deployment [deployment_name]`        |Provides detailed information about a deployment          |
 |`kubectl edit deployment [deployment_name]`            |Edit and update the definition of a deployment            |
 |`kubectl delete deployment [deployment_name]`          |Delete a deployment                                       |    
+|`kubectl delete deployment --all`                      |kubectl all deployments                                   |   
 
+### Labels and Selectors
+In Kubernetes (K8s), **Labels** and **Selectors** are simple but powerful concepts used for organizing and managing your containerized applications. Here's a very accurate and simple explanation:
+
+#### Labels
+- Labels are key-value pairs that you can attach to Kubernetes objects like pods, services, or nodes.
+- They are used to add metadata or tags to these objects.
+- For example, you can label pods with `app=frontend` and `env=production` to indicate that they are part of the production environment and belong to the frontend application
+
+#### Selectors
+- Selectors are a way to query and filter Kubernetes objects based on their labels.
+- They allow you to group or target specific sets of objects that share certain labels.
+- You can use selectors to define which objects should be affected by actions, like scaling, networking policies, or load balancing.
+- For example, if you want to expose all pods with the label `app=frontend` to the internet, you can create a service with a selector that matches this label.
+
+In a nutshell, **Labels** provide a lightweight way to add descriptive information to your Kubernetes objects, while **Selectors** enable you to efficiently manage and manipulate those objects based on their labels.
+
+**Example**  
+Let's say you have a basic pod definition in YAML with a label:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: mycontainer
+    image: nginx:latest
+```
+
+In this example, we have a pod named `mypod` with a label "app" set to `myapp`.   
+This label is a key-value pair associated with the pod. 
+You can apply this configuration to your Kubernetes cluster using the `kubectl apply` command:
+
+```bash
+kubectl apply -f pod-definition.yaml
+```
+
+Then, you can use labels to select and filter pods.   
+For example, to get all pods with the label `app=myapp` you can use the following 
+`kubectl` command:
+
+```bash
+kubectl get pods -l app=myapp
+```
+
+This will show you a list of pods that have the specified label. Labels are powerful because you can use them for various purposes, such as grouping, filtering, and managing your Kubernetes resources.
 
 
 
