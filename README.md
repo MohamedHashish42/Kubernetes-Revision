@@ -320,6 +320,11 @@ For example, to get all pods with the label `app=myapp` you can use the followin
 ```bash
 kubectl get pods -l app=myapp
 ```
+
+<br><br>
+
+---
+
 ## Imperative and Declarative Configurations
 
 This will show you a list of pods that have the specified label. Labels are powerful because you can use them for various purposes, such as grouping, filtering, and managing your Kubernetes resources.
@@ -412,6 +417,32 @@ Declarative configuration is generally considered better for managing Kubernetes
 version control, and allows for easier collaboration and automation. Imperative commands have their place for quick tasks and debugging, but they are not recommended for ongoing resource management due to their limitations and potential for errors.
 
 In summary, for production workloads in Kubernetes, it's generally better to use declarative configurations. They help maintain the desired state of your resources, making it easier to manage and update applications as your infrastructure evolves. Imperative commands are more suitable for quick tasks and experimentation.
+
+<br><br>
+
+---
+
+
+
+## References and Useful resources
+
+- [Kubernetes بالعربي](https://www.youtube.com/playlist?list=PLX1bW_GeBRhDCHijCrMO5F-oHg52rRBpl)
+- [Docker Containers and Kubernetes Fundamentals ](https://www.youtube.com/watch?v=kTp5xUtcalw&t=8692s&ab_channel=freeCodeCamp.org)
+- [Kubectl Command Cheatsheet](https://www.bluematador.com/learn/kubectl-cheatsheet)  
+- [What Is A Kubernetes Cluster](https://aws.amazon.com/what-is/kubernetes-cluster/)  
+- [Control Plane Components](https://www.stackstate.com/blog/kubernetes-architecture-part-2-control-plane-components/)  
+- [Kubernetes Pod Lifecycle](https://devopscube.com/kubernetes-pod-lifecycle/)  
+- [Kubernetes Service Concepts](https://kb.novaordis.com/index.php/Kubernetes_Service_Concepts)  
+- [Kubernetes service types](https://www.ibm.com/docs/en/cloud-private/3.1.1?topic=networking-kubernetes-service-types)  
+- [Guide to the Kubernetes Load Balancer Service](https://www.okteto.com/blog/guide-to-the-kubernetes-load-balancer-service/)
+- [Load Balancing in Kubernetes: A Step-by-Step Guide](https://tamerlan.dev/load-balancing-in-kubernetes-a-step-by-step-guide/)
+- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+- [kubernetes-ingress](https://www.ibm.com/blog/kubernetes-ingress/)
+- [Ingress Overview](https://medium.com/devops-mojo/kubernetes-ingress-overview-what-is-kubernetes-ingress-introduction-to-k8s-ingress-b0f81525ffe2
+)
+- [Ingress vs. Load Balancer in Kubernetes](https://www.baeldung.com/ops/kubernetes-ingress-vs-load-balancer#:~:text=The%20main%20difference%20is%20ingresses,route%20to%20a%20single%20service.
+)
+- [Chat GPT](https://chat.openai.com/auth/login)
 
 
 
