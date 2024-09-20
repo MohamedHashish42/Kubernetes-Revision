@@ -242,7 +242,7 @@ replicas (copies of a pod) are running at all times. It helps maintain the desir
 for your applications. If a pod fails or is deleted, the ReplicaSet automatically replaces it to meet the desired replica 
 count. 
 
-it is used by [Deployments](#deployment) internally to manage the desired number of replicas.
+it is used by [Deployments](#Deployment) internally to manage the desired number of replicas.
 
 ####
 
