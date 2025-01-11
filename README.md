@@ -7,26 +7,27 @@ This revision is designed to provide a concise overview of Kubernetes, including
 
 **Revision Content**  
 
-1. [Introduction](#Introduction)
-2. [Kubernetes Concepts](#K8sConcepts)
-   - [Node](#Node)
-   - [Cluster](#Cluster)
-   - [Pod](#Pod)
-   - [Namespace](#Namespace)
-   - [Service](#Service)
-   - [Ingress](#Ingress)
-   - [ReplicaSet](#ReplicaSet)
-   - [Deployment](#Deployment)
-   - [Labels and Selectors](#LabelsAndSelectors)
-3. [Imperative and Declarative Configurations](#ImperativeAndDeclarativeConfigs)
-4. [References and Useful resources](#ReferencesAndResources)
+1. [Introduction](#introduction)
+2. [Kubernetes Concepts](#kubernetes-concepts)
+   - [Node](#node)
+   - [Cluster](#cluster)
+   - [Pod](#pod)
+   - [Namespace](#namespace)
+   - [Service](#service)
+   - [Ingress](#ingress)
+   - [ReplicaSet](#replicaset)
+   - [Deployment](#deployment)
+   - [Labels and Selectors](#labels-and-selectors)
+3. [Imperative and Declarative Configurations](#imperative-and-declarative-configurations)
+4. [References and Useful Resources](#references-and-useful-resources)
+
 
 
 <br>
 
 ---
 
-## Introduction <a id="Introduction"></a>
+## Introduction 
 
 Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, management, and operation of containerized applications, providing a framework for efficient and resilient application hosting across clusters of machines.
 
@@ -64,8 +65,8 @@ container images, and without exposing secrets in your stack configuration.
 
 ---
 
-## Kubernetes Concepts <a id="K8sConcepts"></a>
-### Node <a id="Node"></a>
+## Kubernetes Concepts 
+### Node 
 In Kubernetes (K8s), a node refers to a physical or virtual machine that is part of a cluster and runs containerized applications.   
 Nodes are the workhorses of a Kubernetes cluster, responsible for executing and managing the containers that make up your applications.  
 
@@ -80,7 +81,7 @@ Nodes are the workhorses of a Kubernetes cluster, responsible for executing and 
 |`kubectl delete node [node_name]`                      |Delete a node                                           |
 |`kubectl top node`                                     |Display Resource usage (CPU/Memory/Storage) for nodes   |
 
-### Cluster <a id="Cluster"></a>
+### Cluster
 In Kubernetes (K8s), a cluster is a collection of nodes that work together to manage and run containerized applications.  
 When you deploy Kubernetes, you are essentially running a Kubernetes cluster. 
 
@@ -111,7 +112,7 @@ It provides a level of abstraction that lets you interact with your applications
 |`kubectl get all --all-namespaces` |List everything                                                |
 
 
-### Pod <a id="Pod"></a>
+### Pod 
 In Kubernetes (K8s), a Pod is the smallest deployable unit where your application's code runs.   
 
 Pods contain one (Single Container Pod) or more (Multi Container Pod) containers.  
@@ -146,7 +147,7 @@ The [lifecycle](https://devopscube.com/kubernetes-pod-lifecycle/) of a Kubernete
 |`kubectl get pod [pod_name] -o yaml > file.yaml`       |Extract the pod definition in YAML and save it to a file|
 |`kubectl top pods`                                     |Display Resource usage (CPU/Memory/Storage) for pods    |
 
-### Namespace <a id="Namespace"></a>
+### Namespace 
 In Kubernetes (k8s), a namespace is like a virtual cluster inside a physical Kubernetes cluster, it is a mechanism to partition and isolate resources within the single cluster, Names of resources need to be unique within a namespace, but not across namespaces.
 
 Namespaces are used to:
@@ -178,7 +179,7 @@ In summary, a Kubernetes namespace is a way to create virtual clusters within a 
 |`kubectl top namespace`                                |Display Resource usage (CPU/Memory/Storage) for namespaces|
 
 
-### Service <a id="Service"></a>
+### Service
 
 In Kubernetes (k8s), service is an abstraction to help you expose groups of Pods over a network. 
 
@@ -210,7 +211,7 @@ There are several **[types of services](https://www.ibm.com/docs/en/cloud-privat
 
 
 
-### Ingress <a id="Ingress"></a>
+### Ingress 
 An Ingress is an API object that manages external access to services within a cluster. It commonly uses HTTP and HTTPS routing to services based on the rules you define.
 
 ingress is a collection of rules, not a service. Instead, Kubernetes ingress sits in front of  **multiple services**  and acts as the entrypoint for an entire cluster of pods.
@@ -236,7 +237,7 @@ the cluster and only route to a single service.
 </div>
 
 
-### ReplicaSet <a id="ReplicaSet"></a>
+### ReplicaSet 
 A [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) in Kubernetes is a resource that ensures a specified number of identical 
 replicas (copies of a pod) are running at all times. It helps maintain the desired level of availability and scalability 
 for your applications. If a pod fails or is deleted, the ReplicaSet automatically replaces it to meet the desired replica 
@@ -257,7 +258,7 @@ it is used by [Deployments](#deployment) internally to manage the desired number
 |`kubectl scale replicaset [replicaset_name] --replicas=[number]`|Scale a replicaSet                               |
 
 
-### Deployment <a id="Deployment"></a>
+### Deployment 
 A Kubernetes deployment (k8s) describe the desired state application, It specifies how many replicas of a pod should run on the cluster. If a pod fails, the deployment creates a new one.
 
 it designed to provide declarative updates to applications. 
@@ -290,7 +291,7 @@ The two basic commonly used K8s deployment strategies
 |`kubectl delete deployment [deployment_name]`          |Delete a deployment                                       |    
 |`kubectl delete deployment --all`                      |kubectl all deployments                                   |   
 
-### Labels and Selectors <a id="LabelsAndSelectors"></a>
+### Labels and Selectors 
 In Kubernetes (K8s), **Labels** and **Selectors** are simple but powerful concepts used for organizing and managing your containerized applications. Here's a very accurate and simple explanation:
 
 #### Labels
@@ -342,8 +343,7 @@ kubectl get pods -l app=myapp
 
 ---
 
-## Imperative and Declarative Configurations <a id="ImperativeAndDeclarativeConfigs"></a>
-
+## Imperative and Declarative Configurations 
 This will show you a list of pods that have the specified label. Labels are powerful because you can use them for various purposes, such as grouping, filtering, and managing your Kubernetes resources.
 
 In Kubernetes (K8s), imperative and declarative configurations are two different approaches to managing your resources and 
@@ -435,13 +435,11 @@ version control, and allows for easier collaboration and automation. Imperative 
 
 In summary, for production workloads in Kubernetes, it's generally better to use declarative configurations. They help maintain the desired state of your resources, making it easier to manage and update applications as your infrastructure evolves. Imperative commands are more suitable for quick tasks and experimentation.
 
-<br><br>
-
----
 
 
 
-## References and Useful resources <a id="ReferencesAndResources"></a>
+
+## References and Useful resources 
 
 - [Kubernetes بالعربي](https://www.youtube.com/playlist?list=PLX1bW_GeBRhDCHijCrMO5F-oHg52rRBpl)
 - [Docker Containers and Kubernetes Fundamentals ](https://www.youtube.com/watch?v=kTp5xUtcalw&t=8692s&ab_channel=freeCodeCamp.org)
